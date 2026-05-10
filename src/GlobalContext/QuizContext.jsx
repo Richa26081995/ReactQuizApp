@@ -1,9 +1,11 @@
 import { createContext, useReducer } from "react";
 import question from "./data.js";
+import shuffleAnswers from "../Components/shuffleAnswers.jsx";
 const initialState = {
   currentQuestionIndex: 0,
   question,
   showResult: false,
+  answers:shuffleAnswers(question[0])
 };
 const reducer = (state, action) => {
   if (action.type === "NEXT_QUES") {
@@ -11,10 +13,12 @@ const reducer = (state, action) => {
     const currentQuestionIndex = showResult
       ? state.currentQuestionIndex
       : state.currentQuestionIndex + 1;
+      const answers = showResult?[]:shuffleAnswers(state.question[currentQuestionIndex])
     return {
       ...state,
       currentQuestionIndex: state.currentQuestionIndex + 1,
-      showResult
+      showResult,
+      answers,
     };
   }
   if(action.type === 'RESTART'){

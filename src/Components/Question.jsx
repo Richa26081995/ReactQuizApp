@@ -12,10 +12,9 @@ const Question = () => {
         {currentQuestion}
       </div>
       <div className="answer-grid">
-        <Answer label="Paris" />
-        <Answer label="Rome" />
-        <Answer label="Madrid" />
-        <Answer label="Berlin" />
+        {quizState.answers.map((ans,index)=>(
+          <Answer ansText={ans} key={index}/>
+        ))}
       </div>
     </section>
   );

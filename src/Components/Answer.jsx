@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Answer = ({ label }) => {
+const Answer = ({ ansText }) => {
   return (
     <button className="answer-item" type="button">
-      {label}
+      {ansText}
     </button>
   )
 }
