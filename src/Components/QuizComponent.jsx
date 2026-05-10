@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Question from "./Question";
 import { QuizContext } from "../GlobalContext/QuizContext";
+import Result from "./Result";
 
 
 const QuizComponent = () => {
@@ -10,7 +11,8 @@ const QuizComponent = () => {
   
   return (
     <main className="quiz-page">
-      <section className="quiz-card">
+      {quizState.showResult && (<Result quizState={quizState} dispatch={dispatch}/>)}
+      {!quizState.showResult && (<section className="quiz-card">
         <header className="quiz-header">
           <span className="quiz-label">QUIZ TIME</span>
           <h1 className="quiz-title">Let's Play Quiz</h1>
@@ -32,7 +34,8 @@ const QuizComponent = () => {
             Next Question
           </button>
         </div>
-      </section>
+      </section>)}
+      
     </main>
   );
 };
