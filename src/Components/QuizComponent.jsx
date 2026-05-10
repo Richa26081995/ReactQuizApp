@@ -1,21 +1,13 @@
-import { useReducer } from "react";
+import { useContext } from "react";
 import Question from "./Question";
+import { QuizContext } from "../GlobalContext/QuizContext";
 
-const initialState = {
-  currentQuestionIndex: 0,
-  questions: [],
-};
-const reducer = (state, action) => {
-  if (action.type === "NEXT_QUES") {
-    return {
-      ...state,
-      currentQuestionIndex: state.currentQuestionIndex + 1,
-    };
-  }
-  return state;
-};
+
 const QuizComponent = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  // const quizState = useContext(QuizContext)
+  const [quizState,dispatch] =useContext(QuizContext)
+  console.log("Quiz State is",quizState)
+  
   return (
     <main className="quiz-page">
       <section className="quiz-card">
