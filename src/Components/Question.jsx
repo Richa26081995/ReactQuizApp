@@ -1,10 +1,16 @@
-import React from 'react'
-import Answer from './Answer'
+import React, { useContext } from "react";
+import Answer from "./Answer";
+import { QuizContext } from "../GlobalContext/QuizContext";
+
 
 const Question = () => {
+  const [quizState] = useContext(QuizContext);
+  const currentQuestion = quizState.question[quizState.currentQuestionIndex].question
   return (
     <section className="question-card">
-      <div className="question-text">What is the capital of France?</div>
+      <div className="question-text">
+        {currentQuestion}
+      </div>
       <div className="answer-grid">
         <Answer label="Paris" />
         <Answer label="Rome" />
@@ -12,7 +18,7 @@ const Question = () => {
         <Answer label="Berlin" />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Question
+export default Question;

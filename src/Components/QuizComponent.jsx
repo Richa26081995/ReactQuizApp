@@ -21,7 +21,7 @@ const QuizComponent = () => {
 
         <div className="quiz-progress">
           <span className="progress-step">Question</span>
-          <span className="progress-count">1 / 10</span>
+          <span className="progress-count">{quizState.currentQuestionIndex+1}/{quizState.question.length}</span>
         </div>
 
         <Question />
@@ -29,7 +29,7 @@ const QuizComponent = () => {
         <div className="quiz-actions">
           <button className="button button-primary" type="button"
           onClick={()=>dispatch({type:"NEXT_QUES"})}>
-            Next Question {state.currentQuestionIndex}
+            Next Question
           </button>
         </div>
       </section>
