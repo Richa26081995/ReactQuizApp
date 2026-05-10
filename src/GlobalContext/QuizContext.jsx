@@ -25,6 +25,7 @@ const reducer = (state, action) => {
         currentQuestionIndex: state.currentQuestionIndex + 1,
         showResult,
         answers,
+        currentAns:''
       };
     }
     case "RESTART": {
